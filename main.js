@@ -11,5 +11,5 @@ function animate(){
   car.update();
   canvas.height = window.innerHeight; // clear canvas for animation loop
   car.draw(ctx);
-  requestAnimationFrame(animate); //keep looping by calling the animate()
+  requestAnimationFrame(animate); //keep looping by calling animate()
 }
