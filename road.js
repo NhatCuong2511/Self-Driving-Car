@@ -1,8 +1,8 @@
 class Road {
-  constructor (x, width, lane = 3) {
+  constructor (x, width, laneCount = 3) {
     this.x = x;
     this.width = width;
-    this.laneCount = lane;
+    this.laneCount = laneCount;
     //define left and right curb location
     this.left = x - width/2; 
     this.right = x + width/2;
@@ -51,17 +51,16 @@ class Road {
       ctx.moveTo(x, this.top)
       ctx.lineTo(x, this.bottom);
       ctx.stroke();
-      }
+    }
 
       //draw borders 
-      ctx.setLineDash([]); // solid border
-      this.border.forEach(border=>{ // run twice for 2 borders
-        ctx.beginPath();  
-        //draw a line from top to bottom                    
-        ctx.moveTo(border[0].x, border[0].y) 
-        ctx.lineTo(border[1].x, border[1].y) 
-        ctx.stroke();
-      })
-      
-    }
+    ctx.setLineDash([]); // solid border
+    this.border.forEach(border=>{ // run twice for 2 borders
+      ctx.beginPath();  
+      //draw a line from top to bottom                    
+      ctx.moveTo(border[0].x, border[0].y) 
+      ctx.lineTo(border[1].x, border[1].y) 
+      ctx.stroke();
+    });
+  }
 }
