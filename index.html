@@ -11,6 +11,13 @@
   <div id="verticalButtons">
         <button onclick="save()">💾 </button>
         <button onclick="discard()">🗑️ </button>
+        <input type="number" 
+           id="carCount" 
+           onchange="saveCarCount(this.value)" 
+           value="1" 
+           min="1" 
+           max="1000" 
+           style="width:50px; padding:5px; border-radius:5px; border:none;">
     </div>
   <canvas id="networkCanvas"></canvas>
   <script src="visualizer.js"></script>

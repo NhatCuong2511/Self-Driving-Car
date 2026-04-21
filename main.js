@@ -3,12 +3,24 @@ carCanvas.width=200;
 const networkCanvas=document.getElementById("networkCanvas");
 networkCanvas.width=300;
 
+
+
 const carCtx = carCanvas.getContext("2d");
 const networkCtx = networkCanvas.getContext("2d");
 
 const road=new Road(carCanvas.width/2,carCanvas.width*0.9);
 
-const N=1000;
+const savedCount = localStorage.getItem("carCount");
+const carInput = document.getElementById("carCount");
+
+if (savedCount) {
+    carInput.value = savedCount;
+}
+
+// 2. Use the value from the input box (which is now synced with storage)
+let N = parseInt(carInput.value);
+
+
 const cars=generateCars(N);
 let bestCar=cars[0];
 
@@ -39,9 +51,14 @@ function save(){
         JSON.stringify(bestCar.brain));
 }
 
+function saveCarCount(value) {
+    localStorage.setItem("carCount", value);
+}
+
 
 function discard(){
     localStorage.removeItem("bestBrain");
+    localStorage.removeItem("carCount");
 }
 
 function generateCars(N){
